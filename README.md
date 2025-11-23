@@ -22,7 +22,7 @@ cd scripts
 python3 fetch_data.py
 ```
 
-### Generate Plot
+### Generate Figures
 ```bash
 cd scripts
 python3 simple_plot.py
@@ -30,9 +30,9 @@ python3 simple_plot.py
 
 ## Files
 - `scripts/fetch_data.py` - Download EPA AQS data
-- `scripts/simple_plot.py` - Generate initial visualization
+- `scripts/simple_plot.py` - Generate time series visualization
 
 ## Generated Files
 *Note: The following files are created when scripts are executed and are not tracked in git:*
 - `data/all_cities_pm25.csv` - Processed PM2.5 data (created by fetch_data.py)
-- `figures/air_quality_timeseries.png` - Initial plot (created by simple_plot.py)
+- `figures/air_quality_timeseries.pdf` - Time series plot in PDF format (created by simple_plot.py)

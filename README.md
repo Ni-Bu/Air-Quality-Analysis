@@ -28,6 +28,14 @@ cd scripts
 python3 simple_plot.py
 ```
 
+### Demo Notebook
+Explore the air quality analysis modules interactively:
+```bash
+jupyter notebook analysis_demo.ipynb
+```
+
+The demo notebook demonstrates all module functions using the PM2.5 data.
+
 ### Run Tests
 ```bash
 # Run all tests

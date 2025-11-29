@@ -28,9 +28,23 @@ cd scripts
 python3 simple_plot.py
 ```
 
+### Run Tests
+```bash
+# Run all tests
+python3 -m pytest tests/ -v
+
+# Run specific module tests
+python3 -m pytest tests/test_statistics.py -v
+python3 -m pytest tests/test_extremes.py -v
+```
+
 ## Files
 - `scripts/fetch_data.py` - Download EPA AQS data
 - `scripts/simple_plot.py` - Generate time series visualization
+- `air_quality/statistics.py` - Statistical analysis functions (mean, rolling average, exceedance counts, AQI calculation)
+- `air_quality/extremes.py` - Extreme value identification (threshold-based, percentile-based, consecutive exceedances)
+- `tests/test_statistics.py` - Tests for statistics module
+- `tests/test_extremes.py` - Tests for extremes module
 
 ## Generated Files
 *Note: The following files are created when scripts are executed and are not tracked in git:*

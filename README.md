@@ -34,7 +34,11 @@ Explore the air quality analysis modules interactively:
 jupyter notebook analysis_demo.ipynb
 ```
 
-The demo notebook demonstrates all module functions using the PM2.5 data.
+The demo notebook demonstrates all module functions using the PM2.5 data:
+- Statistics module (mean, rolling average, exceedance counts, AQI)
+- Extremes module (threshold, percentile, consecutive exceedances)
+- Trends module (linear trends, seasonal averages, monthly statistics)
+- Plotting utilities (styles, colors, subplot helpers)
 
 ### Run Tests
 ```bash
@@ -51,6 +55,7 @@ python3 -m pytest tests/test_extremes.py -v
 - `scripts/simple_plot.py` - Generate time series visualization
 - `air_quality/statistics.py` - Statistical analysis functions (mean, rolling average, exceedance counts, AQI calculation)
 - `air_quality/extremes.py` - Extreme value identification (threshold-based, percentile-based, consecutive exceedances)
+- `air_quality/plotting.py` - Plotting utilities (styles, colors, subplot helpers)
 - `tests/test_statistics.py` - Tests for statistics module
 - `tests/test_extremes.py` - Tests for extremes module
 

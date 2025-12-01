@@ -23,10 +23,18 @@ python3 fetch_data.py
 ```
 
 ### Generate Figures
+
+#### Basic Time Series Plot
 ```bash
 cd scripts
 python3 simple_plot.py
 ```
+
+#### Enhanced Time Series Plot (with rolling averages and thresholds)
+```bash
+python3 scripts/plot_timeseries.py
+```
+*Note: Can be run from either project root or scripts directory*
 
 ### Demo Notebook
 Explore the air quality analysis modules interactively:
@@ -52,7 +60,8 @@ python3 -m pytest tests/test_extremes.py -v
 
 ## Files
 - `scripts/fetch_data.py` - Download EPA AQS data
-- `scripts/simple_plot.py` - Generate time series visualization
+- `scripts/simple_plot.py` - Generate basic time series visualization
+- `scripts/plot_timeseries.py` - Generate enhanced time series with rolling averages and thresholds
 - `air_quality/statistics.py` - Statistical analysis functions (mean, rolling average, exceedance counts, AQI calculation)
 - `air_quality/extremes.py` - Extreme value identification (threshold-based, percentile-based, consecutive exceedances)
 - `air_quality/plotting.py` - Plotting utilities (styles, colors, subplot helpers)
@@ -62,4 +71,5 @@ python3 -m pytest tests/test_extremes.py -v
 ## Generated Files
 *Note: The following files are created when scripts are executed and are not tracked in git:*
 - `data/all_cities_pm25.csv` - Processed PM2.5 data (created by fetch_data.py)
-- `figures/air_quality_timeseries.pdf` - Time series plot in PDF format (created by simple_plot.py)
+- `figures/air_quality_timeseries.pdf` - Basic time series plot (created by simple_plot.py)
+- `figures/timeseries_detailed.pdf` - Enhanced time series with rolling averages and thresholds (created by plot_timeseries.py)

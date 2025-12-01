@@ -57,6 +57,13 @@ python3 plot_distribution.py
 ```
 *Generates histogram showing overall PM2.5 distribution across all cities with EPA thresholds and summary statistics*
 
+#### Trend Analysis with Linear Fits
+```bash
+cd scripts
+python3 plot_trends.py
+```
+*Generates scatter plots with fitted linear trend lines for each city, showing temporal trends in PM2.5 values over 2024 with R² values and slope annotations*
+
 ### Demo Notebook
 Explore the air quality analysis modules interactively:
 ```bash
@@ -92,11 +99,14 @@ python3 -m pytest tests/test_extremes.py -v
 - `scripts/plot_statistics.py` - Generate statistical summary box plots for each city
 - `scripts/plot_extremes.py` - Generate extreme events comparison bar chart
 - `scripts/plot_distribution.py` - Generate PM2.5 distribution histogram with EPA thresholds
+- `scripts/plot_trends.py` - Generate trend analysis scatter plots with fitted linear regression lines
 - `air_quality/statistics.py` - Statistical analysis functions (mean, rolling average, exceedance counts, AQI calculation)
 - `air_quality/extremes.py` - Extreme value identification (threshold-based, percentile-based, consecutive exceedances)
+- `air_quality/trends.py` - Trend analysis functions (linear regression, seasonal patterns, monthly statistics)
 - `air_quality/plotting.py` - Plotting utilities (styles, colors, subplot helpers)
 - `tests/test_statistics.py` - Tests for statistics module
 - `tests/test_extremes.py` - Tests for extremes module
+- `tests/test_trends.py` - Tests for trends module
 
 ## Generated Files
 *Note: The following files are created when scripts are executed and are not tracked in git:*
@@ -106,3 +116,4 @@ python3 -m pytest tests/test_extremes.py -v
 - `figures/statistical_summary.pdf` - Box plots showing PM2.5 distribution by city (created by plot_statistics.py)
 - `figures/extreme_events.pdf` - Grouped bar chart comparing exceedance counts (created by plot_extremes.py)
 - `figures/pm25_distribution.pdf` - Histogram showing overall PM2.5 distribution with thresholds (created by plot_distribution.py)
+- `figures/trend_analysis.pdf` - Scatter plots with linear trend lines showing temporal trends (created by plot_trends.py)

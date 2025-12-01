@@ -9,18 +9,16 @@ This script creates a detailed time series plot showing:
 - EPA standard (35 µg/m³) and unhealthy threshold (55.4 µg/m³)
 - Shaded regions between thresholds
 - AQI color zones in background
+
+Run from project root:
+    PYTHONPATH=. python3 scripts/plot_timeseries.py
 """
 
-import sys
 import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-
-# Add project root to path to import air_quality modules
-# (since this project is not installed as a package)
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from air_quality.plotting import (
     get_plot_style,

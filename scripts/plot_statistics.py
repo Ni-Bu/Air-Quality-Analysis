@@ -4,19 +4,23 @@ Generate statistical summary box plots for PM2.5 data across cities.
 This script creates a 2x3 grid of box plots showing the distribution of
 PM2.5 values for each city, with EPA standard reference lines.
 
-Run from project root:
-    PYTHONPATH=. python3 scripts/plot_statistics.py
+Run from scripts directory:
+    python3 plot_statistics.py
 """
 
 from pathlib import Path
+import sys
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+# Add parent directory to path to import air_quality modules
+sys.path.append('..')
+
 from air_quality.data_loader import (
     load_pm25_data, get_cities_list, filter_by_city
 )
-from air_quality.plotting import (
+from plot_helpers import (
     get_plot_style, setup_subplot_grid, get_city_colors
 )
 
@@ -155,8 +159,8 @@ def create_statistical_summary(
 
 def main():
     """Main execution function."""
-    # Data path (run from project root)
-    data_path = Path('data/all_cities_pm25.csv')
+    # Data path (run from scripts directory)
+    data_path = Path('../data/all_cities_pm25.csv')
 
     # Check if data file exists
     if not data_path.exists():
@@ -170,7 +174,7 @@ def main():
     print(f"Loaded {len(df)} records for {len(df['city'].unique())} cities")
 
     # Create output directory if needed
-    output_dir = Path('figures')
+    output_dir = Path('../figures')
     output_dir.mkdir(exist_ok=True)
 
     # Generate figure

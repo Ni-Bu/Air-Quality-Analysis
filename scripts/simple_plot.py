@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib.dates as mdates
 
-from air_quality.plotting import get_plot_style, get_city_colors
+from plot_helpers import get_plot_style, get_city_colors
 
 
 CITIES = [

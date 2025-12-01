@@ -10,17 +10,21 @@ This script creates a detailed time series plot showing:
 - Shaded regions between thresholds
 - AQI color zones in background
 
-Run from project root:
-    PYTHONPATH=. python3 scripts/plot_timeseries.py
+Run from scripts directory:
+    python3 plot_timeseries.py
 """
 
 import os
+import sys
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 
-from air_quality.plotting import (
+# Add parent directory to path to import air_quality modules
+sys.path.append('..')
+
+from plot_helpers import (
     get_plot_style,
     get_city_colors,
     setup_subplot_grid

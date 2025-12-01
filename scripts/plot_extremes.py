@@ -4,21 +4,25 @@ Generate extreme events comparison bar chart for PM2.5 data.
 This script creates a grouped bar chart comparing exceedance counts across
 cities using multiple threshold definitions (EPA standard and 95th percentile).
 
-Run from project root:
-    PYTHONPATH=. python3 scripts/plot_extremes.py
+Run from scripts directory:
+    python3 plot_extremes.py
 """
 
 from pathlib import Path
+import sys
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+
+# Add parent directory to path to import air_quality modules
+sys.path.append('..')
 
 from air_quality.data_loader import (
     load_pm25_data, get_cities_list, filter_by_city
 )
 from air_quality.statistics import calculate_exceedance_count
 from air_quality.extremes import identify_extremes_threshold
-from air_quality.plotting import get_plot_style, get_city_colors
+from plot_helpers import get_plot_style, get_city_colors
 
 
 def create_extremes_comparison(
@@ -163,8 +167,8 @@ def create_extremes_comparison(
 
 def main():
     """Main execution function."""
-    # Data path (run from project root)
-    data_path = Path('data/all_cities_pm25.csv')
+    # Data path (run from scripts directory)
+    data_path = Path('../data/all_cities_pm25.csv')
 
     # Check if data file exists
     if not data_path.exists():
@@ -178,7 +182,7 @@ def main():
     print(f"Loaded {len(df)} records for {len(df['city'].unique())} cities")
 
     # Create output directory if needed
-    output_dir = Path('figures')
+    output_dir = Path('../figures')
     output_dir.mkdir(exist_ok=True)
 
     # Generate figure

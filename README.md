@@ -32,14 +32,23 @@ python3 simple_plot.py
 
 #### Enhanced Time Series Plot (with rolling averages and thresholds)
 ```bash
-PYTHONPATH=. python3 scripts/plot_timeseries.py
+cd scripts
+python3 plot_timeseries.py
 ```
 
 #### Statistical Summary Box Plots
 ```bash
-PYTHONPATH=. python3 scripts/plot_statistics.py
+cd scripts
+python3 plot_statistics.py
 ```
 *Generates box plots showing PM2.5 distribution for each city*
+
+#### Extreme Events Comparison
+```bash
+cd scripts
+python3 plot_extremes.py
+```
+*Generates grouped bar chart comparing exceedance counts across cities using EPA standard and 95th percentile thresholds*
 
 ### Demo Notebook
 Explore the air quality analysis modules interactively:
@@ -54,6 +63,7 @@ The demo notebook demonstrates all module functions using the PM2.5 data:
 - Plotting utilities (styles, colors, subplot helpers)
 - Enhanced time series visualization with rolling averages
 - Statistical summary box plots with outlier analysis
+- Extreme events comparison with grouped bar charts
 
 ### Run Tests
 ```bash
@@ -70,6 +80,7 @@ python3 -m pytest tests/test_extremes.py -v
 - `scripts/simple_plot.py` - Generate basic time series visualization
 - `scripts/plot_timeseries.py` - Generate enhanced time series with rolling averages and thresholds
 - `scripts/plot_statistics.py` - Generate statistical summary box plots for each city
+- `scripts/plot_extremes.py` - Generate extreme events comparison bar chart
 - `air_quality/statistics.py` - Statistical analysis functions (mean, rolling average, exceedance counts, AQI calculation)
 - `air_quality/extremes.py` - Extreme value identification (threshold-based, percentile-based, consecutive exceedances)
 - `air_quality/plotting.py` - Plotting utilities (styles, colors, subplot helpers)
@@ -82,3 +93,4 @@ python3 -m pytest tests/test_extremes.py -v
 - `figures/air_quality_timeseries.pdf` - Basic time series plot (created by simple_plot.py)
 - `figures/timeseries_detailed.pdf` - Enhanced time series with rolling averages and thresholds (created by plot_timeseries.py)
 - `figures/statistical_summary.pdf` - Box plots showing PM2.5 distribution by city (created by plot_statistics.py)
+- `figures/extreme_events.pdf` - Grouped bar chart comparing exceedance counts (created by plot_extremes.py)

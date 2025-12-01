@@ -71,7 +71,7 @@ def create_statistical_summary(
         city_df = filter_by_city(df, city)
         values = city_df['value'].values
 
-        # Create box plot (following matplotlib defaults from course)
+        # Create box plot with matplotlib styling
         ax.boxplot(
             [values],
             widths=0.6,

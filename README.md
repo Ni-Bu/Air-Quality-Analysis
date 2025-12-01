@@ -50,20 +50,30 @@ python3 plot_extremes.py
 ```
 *Generates grouped bar chart comparing exceedance counts across cities using EPA standard and 95th percentile thresholds*
 
+#### PM2.5 Distribution Histogram
+```bash
+cd scripts
+python3 plot_distribution.py
+```
+*Generates histogram showing overall PM2.5 distribution across all cities with EPA thresholds and summary statistics*
+
 ### Demo Notebook
 Explore the air quality analysis modules interactively:
 ```bash
 jupyter notebook analysis_demo.ipynb
 ```
 
-The demo notebook demonstrates all module functions using the PM2.5 data:
-- Statistics module (mean, rolling average, exceedance counts, AQI)
-- Extremes module (threshold, percentile, consecutive exceedances)
-- Trends module (linear trends, seasonal averages, monthly statistics)
-- Plotting utilities (styles, colors, subplot helpers)
-- Enhanced time series visualization with rolling averages
-- Statistical summary box plots with outlier analysis
-- Extreme events comparison with grouped bar charts
+The demo notebook provides a complete analysis workflow that demonstrates:
+- **Statistics module:** mean calculations, rolling averages, exceedance counts, and AQI conversions
+- **Extremes module:** threshold-based, percentile-based, and consecutive exceedance detection
+- **Trends module:** linear trend analysis, seasonal patterns, and monthly statistics
+- **Visualization workflow:** The notebook uses the standalone plotting scripts from `scripts/` to generate publication-quality figures
+  - Time series with 7-day rolling averages and EPA thresholds (via `plot_timeseries.py`)
+  - Statistical summary box plots (via `plot_statistics.py`)
+  - Extreme events comparison charts (via `plot_extremes.py`)
+  - PM2.5 distribution histograms (via `plot_distribution.py`)
+
+This demonstrates the modular design where analysis functions and visualization scripts can be reused across different workflows.
 
 ### Run Tests
 ```bash
@@ -81,6 +91,7 @@ python3 -m pytest tests/test_extremes.py -v
 - `scripts/plot_timeseries.py` - Generate enhanced time series with rolling averages and thresholds
 - `scripts/plot_statistics.py` - Generate statistical summary box plots for each city
 - `scripts/plot_extremes.py` - Generate extreme events comparison bar chart
+- `scripts/plot_distribution.py` - Generate PM2.5 distribution histogram with EPA thresholds
 - `air_quality/statistics.py` - Statistical analysis functions (mean, rolling average, exceedance counts, AQI calculation)
 - `air_quality/extremes.py` - Extreme value identification (threshold-based, percentile-based, consecutive exceedances)
 - `air_quality/plotting.py` - Plotting utilities (styles, colors, subplot helpers)
@@ -94,3 +105,4 @@ python3 -m pytest tests/test_extremes.py -v
 - `figures/timeseries_detailed.pdf` - Enhanced time series with rolling averages and thresholds (created by plot_timeseries.py)
 - `figures/statistical_summary.pdf` - Box plots showing PM2.5 distribution by city (created by plot_statistics.py)
 - `figures/extreme_events.pdf` - Grouped bar chart comparing exceedance counts (created by plot_extremes.py)
+- `figures/pm25_distribution.pdf` - Histogram showing overall PM2.5 distribution with thresholds (created by plot_distribution.py)

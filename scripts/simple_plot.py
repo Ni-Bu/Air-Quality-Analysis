@@ -11,27 +11,13 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib.dates as mdates
 
+from air_quality.plotting import get_plot_style, get_city_colors
 
-# Configure matplotlib defaults for consistent styling
-PLOT_STYLE = {
-    'font.size': 12,
-    'lines.linewidth': 2,
-    'savefig.bbox': 'tight'
-}
-mpl.rcParams.update(PLOT_STYLE)
 
 CITIES = [
     'Los Angeles', 'Fresno', 'Phoenix',
     'Denver', 'Salt Lake City', 'Pittsburgh'
 ]
-CITY_COLORS = {
-    'Los Angeles': '#d62728',
-    'Fresno': '#ff7f0e',
-    'Phoenix': '#8c564b',
-    'Denver': '#9467bd',
-    'Salt Lake City': '#2ca02c',
-    'Pittsburgh': '#1f77b4'
-}
 
 def load_data():
     """
@@ -66,6 +52,12 @@ def create_plot(pm25_data, output_file=None):
     None
         Saves figure to file
     """
+    # Apply plot style
+    mpl.rcParams.update(get_plot_style())
+    
+    # Get city colors
+    city_colors = get_city_colors()
+    
     fig, ax = plt.subplots(figsize=(12, 6))
 
     # Plot each city's data
@@ -77,7 +69,7 @@ def create_plot(pm25_data, output_file=None):
                 city_data['value'],
                 alpha=0.8,
                 label=city,
-                color=CITY_COLORS.get(city, 'gray')
+                color=city_colors.get(city, 'gray')
             )
 
     # Add EPA standard reference line

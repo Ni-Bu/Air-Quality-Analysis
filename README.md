@@ -64,6 +64,13 @@ python3 plot_trends.py
 ```
 *Generates scatter plots with fitted linear trend lines for each city, showing temporal trends in PM2.5 values over 2024 with R² values and slope annotations*
 
+#### Sensitivity Analysis
+```bash
+cd scripts
+python3 plot_sensitivity.py
+```
+*Generates multi-line plot showing how extreme event counts vary with threshold definitions (15-40 μg/m³), demonstrating robustness of findings to threshold choice*
+
 ### Demo Notebook
 Explore the air quality analysis modules interactively:
 ```bash
@@ -100,6 +107,7 @@ python3 -m pytest tests/test_extremes.py -v
 - `scripts/plot_extremes.py` - Generate extreme events comparison bar chart
 - `scripts/plot_distribution.py` - Generate PM2.5 distribution histogram with EPA thresholds
 - `scripts/plot_trends.py` - Generate trend analysis scatter plots with fitted linear regression lines
+- `scripts/plot_sensitivity.py` - Generate sensitivity analysis showing robustness to threshold choice
 - `air_quality/statistics.py` - Statistical analysis functions (mean, rolling average, exceedance counts, AQI calculation)
 - `air_quality/extremes.py` - Extreme value identification (threshold-based, percentile-based, consecutive exceedances)
 - `air_quality/trends.py` - Trend analysis functions (linear regression, seasonal patterns, monthly statistics)
@@ -117,3 +125,4 @@ python3 -m pytest tests/test_extremes.py -v
 - `figures/extreme_events.pdf` - Grouped bar chart comparing exceedance counts (created by plot_extremes.py)
 - `figures/pm25_distribution.pdf` - Histogram showing overall PM2.5 distribution with thresholds (created by plot_distribution.py)
 - `figures/trend_analysis.pdf` - Scatter plots with linear trend lines showing temporal trends (created by plot_trends.py)
+- `figures/sensitivity_analysis.pdf` - Multi-line plot showing sensitivity to threshold definitions (created by plot_sensitivity.py)

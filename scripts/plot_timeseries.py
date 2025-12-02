@@ -72,6 +72,8 @@ def plot_enhanced_timeseries(df, output_path):
     city_colors = get_city_colors()
     cities = sorted(df['city'].unique())
     
+    all_dates = df['date'].values
+    
     # Create figure
     fig, ax = setup_subplot_grid(figsize=(14, 8))
     
@@ -112,11 +114,6 @@ def plot_enhanced_timeseries(df, output_path):
                linewidth=2, alpha=0.7,
                label='Unhealthy Threshold (55.4 µg/m³)')
     
-    # Add shaded region between thresholds using fill_between
-    ax.fill_between(dates, 35, 55.4,
-                    color='orange', alpha=0.15,
-                    label='Unhealthy for Sensitive Groups')
-    
     # Formatting
     ax.set_xlabel('Date', fontsize=14, fontweight='bold')
     ax.set_ylabel('PM2.5 Concentration (µg/m³)', fontsize=14, fontweight='bold')
@@ -145,11 +142,6 @@ def plot_enhanced_timeseries(df, output_path):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     print(f"Figure saved to: {output_path}")
-    
-    # Also save as PNG for easy viewing
-    png_path = output_path.replace('.pdf', '.png')
-    plt.savefig(png_path, dpi=300, bbox_inches='tight')
-    print(f"Figure also saved to: {png_path}")
     
     plt.close()
 

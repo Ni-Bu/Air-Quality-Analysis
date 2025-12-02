@@ -144,9 +144,9 @@ def create_distribution_plot(df, output_path='figures/pm25_distribution.pdf'):
         pad=15
     )
 
-    # Grid and legend
+    # Grid and legend - position outside to avoid data overlap
     ax.grid(axis='y', alpha=0.3, linestyle=':')
-    ax.legend(loc='upper right', fontsize=10, bbox_to_anchor=(0.98, 0.55))
+    ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1), fontsize=10)
 
     # Set x-axis limits for better visualization
     ax.set_xlim(0, max(all_values.max(), unhealthy_threshold + 10))

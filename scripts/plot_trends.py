@@ -168,10 +168,6 @@ def create_trend_analysis(
             fontsize=9
         )
 
-        # Add legend only to first subplot
-        if idx == 0:
-            ax.legend(loc='upper left', fontsize=9, framealpha=0.9)
-
         # Add grid for readability
         ax.grid(True, alpha=0.3, linestyle='--', linewidth=0.5)
 
@@ -182,9 +178,14 @@ def create_trend_analysis(
         fontweight='bold',
         y=0.995
     )
+    
+    # Add legend outside the entire figure
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='upper left', bbox_to_anchor=(0.92, 0.88), 
+               fontsize=9, framealpha=0.9)
 
     # Adjust layout to prevent overlap
-    plt.tight_layout(rect=[0, 0, 1, 0.99])
+    plt.tight_layout(rect=[0, 0, 0.9, 0.99])
 
     # Ensure output directory exists
     output_dir = Path(output_path).parent

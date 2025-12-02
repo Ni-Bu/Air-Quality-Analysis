@@ -129,12 +129,13 @@ def create_sensitivity_analysis(
         pad=20
     )
 
-    # Add legend outside plot area
+    # Add legend outside plot area to avoid line overlap
     ax.legend(
-        loc='upper right',
+        loc='upper left',
+        bbox_to_anchor=(1.02, 1),
         fontsize=11,
         framealpha=0.95,
-        ncol=2
+        ncol=1
     )
 
     # Add grid for readability

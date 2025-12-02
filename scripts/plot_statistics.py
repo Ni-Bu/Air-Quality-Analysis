@@ -138,10 +138,6 @@ def create_statistical_summary(
         # Set consistent y-axis limits across all subplots
         ax.set_ylim(0, y_max)
 
-        # Add legend only to first subplot
-        if idx == 0:
-            ax.legend(loc='upper left', fontsize=10)
-
     # Overall title
     fig.suptitle(
         'PM2.5 Distribution by City - 2024',
@@ -149,6 +145,13 @@ def create_statistical_summary(
         fontweight='bold',
         y=0.995
     )
+    
+    # Create a single legend entry for EPA standard line
+    from matplotlib.lines import Line2D
+    legend_elements = [Line2D([0], [0], color='red', linestyle='--', 
+                              linewidth=2, label='EPA Standard (35 μg/m³)')]
+    fig.legend(handles=legend_elements, loc='upper right', bbox_to_anchor=(0.98, 0.95), 
+               fontsize=10, framealpha=0.9)
 
     # Adjust layout and save
     plt.tight_layout()

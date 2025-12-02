@@ -137,7 +137,7 @@ def create_extremes_comparison(
     )
     ax.set_xticks(x)
     ax.set_xticklabels(cities, rotation=45, ha='right')
-    ax.legend(loc='upper left', fontsize=11, framealpha=0.9)
+    ax.legend(loc='upper left', bbox_to_anchor=(1.02, 1), fontsize=11, framealpha=0.9)
     ax.grid(axis='y', alpha=0.3, linestyle=':')
 
     # Set y-axis to start at 0
@@ -147,12 +147,6 @@ def create_extremes_comparison(
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     
-    # Also save as PNG for easier viewing
-    png_path = output_path.replace('.pdf', '.png')
-    plt.savefig(png_path, dpi=300, bbox_inches='tight')
-    
-    print(f"Figure saved to {output_path}")
-    print(f"Figure saved to {png_path}")
     plt.close()
 
     # Print summary statistics
